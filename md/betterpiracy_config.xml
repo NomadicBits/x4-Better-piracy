@@ -52,7 +52,7 @@
             $mouseover  = {61537, 5152},
             $type       = 'slidercell',
             $default    = 20,
-            $args       = table[$min = 0, $max = 100, $suffix = '%'],
+            $args       = table[$min = 11, $max = 100, $suffix = '%'],
             $callback   = OnChange
           ]"
         />
@@ -65,7 +65,7 @@
             $mouseover  = {61537, 5154},
             $type       = 'slidercell',
             $default    = 75,
-            $args       = table[$min = 0, $max = 100, $suffix = '%'],
+            $args       = table[$min = 1, $max = 100, $suffix = '%'],
             $callback   = OnChange
           ]"
         />
@@ -91,7 +91,7 @@
             $mouseover  = {61537, 5158},
             $type       = 'slidercell',
             $default    = 50,
-            $args       = table[$min = 0, $max = 100, $suffix = '%'],
+            $args       = table[$min = 1, $max = 100, $suffix = '%'],
             $callback   = OnChange
           ]"
         />
@@ -117,7 +117,7 @@
             $mouseover  = {61537, 5162},
             $type       = 'slidercell',
             $default    = 25,
-            $args       = table[$min = 0, $max = 100, $suffix = '%'],
+            $args       = table[$min = 1, $max = 100, $suffix = '%'],
             $callback   = OnChange
           ]"
         />

@@ -68,7 +68,7 @@
 			<label name="chase" />
 			<set_value name="$activebehavior" exact="'chase'"/>
 			<cease_fire object="this.ship" />
-			<do_if value="this.ship.isclass.[class.ship_l, class.ship_xl] and this.ship.defencenpc.exists">
+			<do_if value="this.ship.defencenpc.exists">
 				<signal_objects object="this.ship.defencenpc" param="'stop attack'"/>
 			</do_if>
 			<run_script name="'move.generic'">
@@ -80,7 +80,7 @@
 			<!-- End action: CleanUp and finish -->
 			<label name="end"/>
 			<cease_fire object="this.ship" />
-			<do_if value="this.ship.isclass.[class.ship_l, class.ship_xl] and this.ship.defencenpc.exists">
+			<do_if value="this.ship.defencenpc.exists">
 				<signal_objects object="this.ship.defencenpc" param="'stop attack'"/>
 			</do_if>
 			<debug_to_file name="'BetterPiracy'" text="'%s --- betterpiracy.order.fight.harass --- %s (%s) ending harass operation %s against: %s (%s).'.[player.age, this.assignedcontrolled.knownname, this.assignedcontrolled.idcode, $harassoperation, $target.knownname, $target.idcode]" />
@@ -88,6 +88,9 @@
 	</attention>
 	<on_abort>
 		<cease_fire object="this.ship" />
+		<do_if value="this.ship.defencenpc.exists">
+			<signal_objects object="this.ship.defencenpc" param="'stop attack'"/>
+		</do_if>
 		<debug_to_file name="'BetterPiracy'" text="'%s --- betterpiracy.order.fight.harass --- %s (%s) aborting harass operation %s against: %s (%s).'.[player.age, this.assignedcontrolled.knownname, this.assignedcontrolled.idcode, $harassoperation, $target.knownname, $target.idcode]" />
 	</on_abort>
 </aiscript>

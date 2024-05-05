@@ -147,7 +147,11 @@
 									<match_context macro="this.sector.macro" />
 									<match class="$targetclasses" />
 									<match_distance object="this.ship" max="$radius" />
-									<match_relation_of faction="this.trueowner" comparison="lt" relation="neutral" />
+									<match_any>
+										<!-- either hostile factions or with SCA paintmod (makes more sense than knowing true owner) -->
+										<match_relation_of faction="this.trueowner" comparison="lt" relation="neutral" />
+										<match_paint_mod ware="paintmod_0005" />
+									</match_any>
 									<match trueowner="[this.trueowner, faction.ownerless]" negate="true" />
 								</count_gravidar_contacts>
 								<check_any exact="$detected.count" counter="$i">
