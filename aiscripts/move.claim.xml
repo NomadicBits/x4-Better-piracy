@@ -2,7 +2,6 @@
 <diff>
 	<!-- Remove all the hull and component damage caused by "Marine claiming" -->
 	<!-- This selector matches lines 117 and 224 -->
-	<!-- Thanks @pietralbi -->
 	<remove sel="/aiscript/attention[@min='unknown']/actions/do_if[@value='this.ship == $target']/do_if[@value='$damagemaxpercent gt 0']"/>
 	<remove sel="/aiscript/attention[@min='visible']/actions/do_if[@value='this.ship == $target']/do_if[@value='$damagemaxpercent gt 0']"/>
 

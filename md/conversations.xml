@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <diff>
-	<!-- This selector matches line 113 -->
-	<!-- Remove the "Surrender" dialog option -->
-	<remove sel="//do_if[@value='$surrenderoption']"/>
+	<!-- This selector matches line 115 -->
+	<!-- Remove the Surrender dialog option -->
+
+	<replace sel="//do_if[@value='$maysurrender']/@value">0</replace>
 </diff>
