@@ -21,14 +21,14 @@
 			/>
 		</do_if>
 	</add>
-	
-	<!-- This selector matches line 1012 -->
-	<add sel="//eject_npcs" pos="before">
-		<!-- Reputation hit for doing piracy -->
+
+	<!-- This selector matches line 1141 -->
+	<add sel='//set_value[@name="$damageminpercent" @exact="100 - $targetpilotskill"]'	pos="after">
+		<!-- Reputation hit for doing piracy
 		<do_if value="md.Betterpiracy_config.Config.$Config.{'$combat_reputation_hit'} == 1">
-			<!-- Reputation hit disabled until I find a proper way of handling it. -->
-			<!-- <signal_cue_instantly cue="PlayerBoarding" param="[$target, 'boarding started']" /> -->
-		</do_if>
+			 Reputation hit disabled until I find a proper way of handling it.
+			 <signal_cue_instantly cue="PlayerBoarding" param="[$target, 'boarding started']" />
+		</do_if> -->
 
 		<!-- Remove extra damage to hull -->
 		<do_if value="md.Betterpiracy_config.Config.$Config.{'$combat_bailing_pilots_damage_hull'} == 0">
@@ -36,7 +36,7 @@
 		</do_if>
 	</add>
 
-	<!-- This selector matches line 1022 -->
+	<!-- This selector matches line 1217 -->
 	<!-- Remove extra damage to components -->
-	<replace sel="//do_if[@value='$pilotbail?']/do_if[@value='$target.exists']/@value">md.Betterpiracy_config.Config.$Config.{'$combat_bailing_pilots_destroy_components'} == 1 and $target.exists</replace>
+	<replace sel="//do_if[@value='$scuttle and $target.exists']/@value">md.Betterpiracy_config.Config.$Config.{'$combat_bailing_pilots_destroy_components'} == 1 and $target.exists</replace>
 </diff>
