@@ -11,27 +11,27 @@
         <set_value
           name="Config.$Config"
           exact="table[
-            $harass_shield_threshold = null,
-            $early_harass_hull_threshold = null,
-            $harass_bail_attemps_before_mid = null,
-            $mid_harass_hull_threshold = null,
-            $harass_bail_attemps_before_late = null,
-            $late_harass_hull_threshold = null,
-            $keep_pressure_timer = null,
-            $keep_pressure_max_distance_sm = null,
-            $keep_pressure_max_distance_lxl = null,
-            $pressure_buildup_rate = null,
-            $harass_lxl_min_crew_left_base = null,
-            $harass_lxl_min_crew_left_pilot = null,
-            $harass_base_bail_chance = null,
-            $harass_base_bail_number = null,
-            $harass_reputation_hit = null,
-            $harass_bailing_pilots_damage_hull = null,
-            $harass_bailing_pilots_destroy_components = null,
-            $combat_base_bail_chance = null,
-            $combat_reputation_hit = null,
-            $combat_bailing_pilots_damage_hull = null,
-            $combat_bailing_pilots_destroy_components = null
+            $harass_shield_threshold = 20,
+            $early_harass_hull_threshold = 75,
+            $harass_bail_attemps_before_mid = 3,
+            $mid_harass_hull_threshold = 50,
+            $harass_bail_attemps_before_late = 6,
+            $late_harass_hull_threshold = 25,
+            $keep_pressure_timer = 10,
+            $keep_pressure_max_distance_sm = 3,
+            $keep_pressure_max_distance_lxl = 6,
+            $pressure_buildup_rate = 1,
+            $harass_lxl_min_crew_left_base = 25,
+            $harass_lxl_min_crew_left_pilot = 25,
+            $harass_base_bail_chance = 60,
+            $harass_base_bail_number = 20,
+            $harass_reputation_hit = 1,
+            $harass_bailing_pilots_damage_hull = 0,
+            $harass_bailing_pilots_destroy_components = 0,
+            $combat_base_bail_chance = 36,
+            $combat_reputation_hit = 1,
+            $combat_bailing_pilots_damage_hull = 0,
+            $combat_bailing_pilots_destroy_components = 0
           ]"
         />
       </actions>

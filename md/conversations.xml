@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <diff>
-	<!-- This selector matches line 115 -->
-	<!-- Remove the Surrender dialog option -->
-
-	<replace sel="//do_if[@value='$maysurrender']/@value">0</replace>
+	<replace sel="//cues/cue[@name='DefaultComm']/actions/do_if[@value='typeof event.object == datatype.component']/@value">0</replace>
 </diff>
