@@ -61,6 +61,9 @@
 				<set_value name="$MissionStep_WaitBailing" exact="4"/>
 				<set_value name="$MissionStep_ClaimShip" exact="5"/>
 				<set_value name="$Harassers" exact="$MainHarasser.subordinates"/>
+				<set_value name="$ShipClass" exact="$Target.class"/> 
+				<set_value name="$Difficulty" exact="1"/> 
+				<set_value name="$ClientOwner" exact="$Target.owner"/> 
 				<debug_to_file name="'BetterPiracy'" text="'%s --- Betterpiracy_harass --- Harass operation created: $MissionCue = %s, $MainHarasser = %s (%s), $Target = %s (%s), $MaxDistance = %s.'.[player.age, $MissionCue, $MainHarasser.knownname, $MainHarasser.idcode, $Target.knownname, $Target.idcode, $MaxDistance]"/>
 			</actions>
 			<cues>
@@ -403,7 +406,34 @@
 							<actions>
 								<signal_objects object="$Target" param="$MissionCue" param2="'harass__end'"/>
 								<do_if value="$Target.owner == faction.player or not $Target.isoperational">
-									<signal_cue_instantly cue="Harass_ChangePhase" param="'finish'"/>
+									<do_if value="$Config.{'$combat_reputation_hit'} == 1">
+										<!-- This is the only place I could put it where the same logic will work for both boarding and claiming, 
+										users can cheat if they wish by simply canceling the operation. 
+										Ideally it would be better to occur when the pilot bails or when a ship is boarded.
+										The same logic can be applied to harass_reputation_hit, just include a smaller negative multiplyer. -->										
+										<do_if value="$ShipClass = class.ship_s">
+											<set_value name="$Difficulty" exact="level.veryeasy"/>
+										</do_if>
+										<do_if value="$ShipClass = class.ship_m">
+											<set_value name="$Difficulty" exact="level.easy"/>
+										</do_if>
+										<do_if value="$ShipClass = class.ship_l">
+											<set_value name="$Difficulty" exact="level.medium"/>
+										</do_if>
+										<do_if value="$ShipClass = class.ship_xl">
+											<set_value name="$Difficulty" exact="level.hard"/>
+										</do_if>
+										<do_if value="$ShipClass = class.station">
+											<set_value name="$Difficulty" exact="level.veryhard"/>
+										</do_if>
+										<!-- $MissionLevel of 1 to 10. 10 equals roughly double the base reward of 1 -->
+										<signal_cue_instantly cue="md.LIB_Reward_Balancing.Reward_Notoriety" param="[$MissionCue, $Difficulty, $combat_reputation_hit_scale, $ClientOwner]"/>
+										<!-- Likely needs further balencing. Reward_Notoriety__Result must have a negative multiplyer as it is normally positive. -->
+										<set_value name="$RewardNotoriety" exact="$Reward_Notoriety__Result * -0.5"/>
+										<add_faction_relation faction="faction.player" otherfaction="$ClientOwner" value="$RewardNotoriety" reason="relationchangereason.boardedobject" />
+										
+									</do_if>
+								<signal_cue_instantly cue="Harass_ChangePhase" param="'finish'"/>
 								</do_if>
 							</actions>
 						</cue>

@@ -30,6 +30,7 @@
             $harass_bailing_pilots_destroy_components = 0,
             $combat_base_bail_chance = 36,
             $combat_reputation_hit = 1,
+            $combat_reputation_hit_scale = 1,
             $combat_bailing_pilots_damage_hull = 0,
             $combat_bailing_pilots_destroy_components = 0
           ]"
@@ -283,6 +284,19 @@
             $mouseover  = {61537, 5188},
             $type       = 'button',
             $default    = 1,
+            $callback   = OnChange
+          ]"
+        />
+        <signal_cue_instantly
+          cue = "md.Simple_Menu_Options.Register_Option"
+          param = "table[
+            $category   = {61537, 5150},  
+            $id         = '$combat_reputation_hit_scale',
+            $name       = {61537, 5193},
+            $mouseover  = {61537, 5194},
+            $type       = 'slidercell',
+            $default    = 1,
+            $args       = table[$min = 1, $max = 10],
             $callback   = OnChange
           ]"
         />
