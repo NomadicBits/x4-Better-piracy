@@ -431,8 +431,9 @@
 										<!-- Likely needs further balencing. Reward_Notoriety__Result must have a negative multiplyer as it is normally positive. -->
 										<set_value name="$RewardNotoriety" exact="$Reward_Notoriety__Result * -0.5"/>
 										<add_faction_relation faction="faction.player" otherfaction="$ClientOwner" value="$RewardNotoriety" reason="relationchangereason.boardedobject" />
-										<signal_cue_instantly cue="Harass_ChangePhase" param="'finish'"/>
+										
 									</do_if>
+								<signal_cue_instantly cue="Harass_ChangePhase" param="'finish'"/>
 								</do_if>
 							</actions>
 						</cue>
