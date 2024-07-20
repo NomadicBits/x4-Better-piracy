@@ -68,6 +68,8 @@
     <t id="5190">(Combat bailing pilots damage hull mouseover)When enabled, after shooting a target until it bails the bailing pilot will further damage the ship.\n\nThe damage inflicted is proportional to the pilot morale.</t>
     <t id="5191">(Combat bailing pilots destroy components name)Combat bailing pilots destroy components</t>
     <t id="5192">(Combat bailing pilots destroy components mouseover)When enabled, after after shooting a target until it bails the bailing pilot will destroy some of the ship componets.\n\nThe number of componets destroyed is proportional to the pilot morale.</t>
+    <t id="5193">(Combat reputation hit scale name)Combat reputation hit scale</t>
+    <t id="5194">(Combat reputation hit mouseover)When enabled, changes the amount your reputation is changed, 1 is the base, 10 equals roughly double the hit. \n\nThe logic applied to determine if it happens is the same than when you board an L/XL ship.</t>
   </page>
   <!-- Threatening lines -->
   <page id="61538" title="Better piracy voices" descr="0" voice="yes">
